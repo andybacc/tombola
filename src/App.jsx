@@ -7,16 +7,18 @@ import { useEffect } from "react";
 
 function App() {
   const [marked, setMarked] = useState([])
-  const [settings, setSettings] = useState(JSON.parse(cookie.get('tombolaSettings') || { size: 50, gap: 4 }))
+  const [settings, setSettings] = useState({size: 50, gap: 5})
 
   useEffect(() => {
     var tombolaMarked = cookie.get('tombolaMarked')
-    if (tombolaMarked) {
+    var tombolaSettings = cookie.get('tombolaSettings')
+    if (tombolaMarked!= '' && tombolaMarked) {
       setMarked(tombolaMarked.split(',').map((m) => {
         if (m !== 'NaN') return parseInt(m)
       }))
-    } else {
-      setMarked([])
+    }
+    if (tombolaSettings!='' && tombolaSettings) {
+      setSettings(JSON.parse(tombolaSettings))
     }
   }, [])
 
