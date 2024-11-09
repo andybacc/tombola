@@ -1,7 +1,6 @@
-import { Button, Divider, Flex, FormControl, FormLabel, IconButton, Input, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverHeader, PopoverTrigger } from '@chakra-ui/react'
+import { Button, Divider, FormControl, FormLabel, IconButton, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Switch } from '@chakra-ui/react'
 import React from 'react'
 import { IoMenu } from 'react-icons/io5'
-import { Slider, SliderFilledTrack, SliderThumb, SliderTrack } from "@chakra-ui/react"
 
 const Menu = ({ settings, setSettings, setMarked }) => {
   return (
@@ -38,6 +37,15 @@ const Menu = ({ settings, setSettings, setMarked }) => {
             </Slider>
           </FormControl>
           <Divider my='3' />
+          <FormControl display='flex' alignItems='center'>
+  <FormLabel htmlFor='heading' mb='0'>
+    Mostra testata
+  </FormLabel>
+  <Switch id='heading' 
+    isChecked={settings?.heading}
+  onChange={(e) => setSettings({ ...settings, heading: e.target.checked })} />
+</FormControl>
+<Divider my='3' />
           <Button onClick={() => setMarked([])}>Reset</Button>
         </PopoverBody>
       </PopoverContent>

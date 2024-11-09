@@ -27,6 +27,7 @@ const Numeri = ({settings,marked,setMarked}) => {
                         _hover={{ bg: marked.includes(i + 1) ? 'teal.500' : 'grey.500' }}
                         borderWidth='1px'
                         fontSize={settings?.size / 2.5}
+                        color={marked.includes(i + 1) ? 'white' : 'gray.600'}
                         p='5'
                         w={settings?.size+'px'}
                         h={settings?.size+'px'}
