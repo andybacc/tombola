@@ -1,4 +1,4 @@
-import { Box, Center, Heading, HStack, Spacer } from "@chakra-ui/react";
+import { Center, Container, Heading, HStack, Spacer } from "@chakra-ui/react";
 
 import cookie from 'js-cookie';
 import React, { useEffect, useState } from 'react';
@@ -47,13 +47,11 @@ function App() {
 
 
   return (
+    <>
     <Center onKeyDown={handleKeyDown} 
-    m='0'
-    p='0'
-    tabIndex='0' 
-    minH='100vh' 
-    minW='100vw'>
-      <Box>
+    tabIndex={0}
+    >
+      <Container size='xl'>
         <HStack>
           <Spacer />
           {settings?.heading && <Heading size='2xl' as="h1">Tombola</Heading>}
@@ -61,9 +59,10 @@ function App() {
           <Menu setMarked={setMarked} settings={settings} setSettings={setSettings} />
         </HStack>
         <Numeri marked={marked} setMarked={setMarked} settings={settings} />
-      </Box>
-      <Numerone numerone={numerone} />
+      </Container>
     </Center>
+      <Numerone numerone={numerone} />
+      </>
   )
 }
 const Numerone = ({ numerone }) => {
