@@ -23,7 +23,6 @@ function App() {
   }, [])
 
   useEffect(() => {
-    console.log(settings)
     cookie.set('tombolaMarked', marked)
     cookie.set('tombolaSettings', JSON.stringify(settings))
   }, [marked, settings])
