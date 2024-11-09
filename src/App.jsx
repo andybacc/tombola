@@ -1,10 +1,9 @@
-import { Box, Flex, Container, VStack, Heading, HStack, Spacer, Center } from "@chakra-ui/react";
+import { Box, Center, Heading, HStack, Spacer } from "@chakra-ui/react";
 
-import React, { useState } from 'react';
+import cookie from 'js-cookie';
+import React, { useEffect, useState } from 'react';
 import Menu from "./Menu";
 import Numeri from "./Numeri";
-import cookie from 'js-cookie';
-import { useEffect } from "react";
 
 function App() {
   const [marked, setMarked] = useState([])
