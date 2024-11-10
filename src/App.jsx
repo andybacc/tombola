@@ -6,7 +6,7 @@ import Menu from "./Menu";
 import Numeri from "./Numeri";
 
 function App() {
-  const initVals = { size: 50, gap: 5, marked: 'teal.500', normale: 'grey.400', text: 'grey.600'}
+  const initVals = { size: 50, gap: 5, marked: 'teal', unmarked: 'gray', heading: false }
   const [marked, setMarked] = useState([])
   const [settings, setSettings] = useState(initVals)
   const [numerone, setNumerone] = useState('')

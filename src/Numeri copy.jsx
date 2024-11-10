@@ -1,5 +1,7 @@
-import { Button, Grid, VStack } from '@chakra-ui/react'
-import React from 'react'
+import { Button, Flex, Box, Grid, VStack } from '@chakra-ui/react'
+import cookie from 'js-cookie'
+import React, { useEffect, useState } from 'react'
+import _ from 'lodash'
 
 const Numeri = ({settings,marked,setMarked}) => {
     const markNumber = (n) => {
@@ -20,11 +22,12 @@ const Numeri = ({settings,marked,setMarked}) => {
                         onClick={() => markNumber(i + 1)}
                         display='flex'
                         justifyContent='center'
+                        bg={marked.includes(i + 1) ? 'teal.500' : ''}
                         variant={marked.includes(i + 1) ? 'solid' : 'outline'}
-                        _hover={{ bg: marked.includes(i + 1) ? settings?.marked : settings?.unmarked }}
+                        _hover={{ bg: marked.includes(i + 1) ? 'teal.500' : '' }}
                         borderWidth='1px'
                         fontSize={settings?.size / 2.5}
-                        colorScheme={marked.includes(i + 1) ? settings?.marked : settings?.unmarked}
+                        color={marked.includes(i + 1) ? 'white' : 'gray.400'}
                         p='5'
                         w={settings?.size+'px'}
                         h={settings?.size+'px'}
