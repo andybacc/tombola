@@ -21,7 +21,7 @@ const Numeri = ({settings,marked,setMarked}) => {
                         display='flex'
                         justifyContent='center'
                         variant={marked.includes(i + 1) ? 'solid' : 'outline'}
-                        _hover={{ bg: marked.includes(i + 1) ? settings?.marked : settings?.unmarked }}
+                        _hover={{ bg: marked.includes(i + 1) ? settings?.marked : '' }}
                         borderWidth='1px'
                         fontSize={settings?.size / 2.5}
                         colorScheme={marked.includes(i + 1) ? settings?.marked : settings?.unmarked}
