@@ -22,12 +22,12 @@ const Numeri = ({settings,marked,setMarked}) => {
                         onClick={() => markNumber(i + 1)}
                         display='flex'
                         justifyContent='center'
-                        bg={marked.includes(i + 1) ? 'teal.500' : 'grey.500'}
+                        bg={marked.includes(i + 1) ? 'teal.500' : ''}
                         variant={marked.includes(i + 1) ? 'solid' : 'outline'}
-                        _hover={{ bg: marked.includes(i + 1) ? 'teal.500' : 'grey.500' }}
+                        _hover={{ bg: marked.includes(i + 1) ? 'teal.500' : '' }}
                         borderWidth='1px'
                         fontSize={settings?.size / 2.5}
-                        color={marked.includes(i + 1) ? 'white' : 'gray.600'}
+                        color={marked.includes(i + 1) ? 'white' : 'gray.400'}
                         p='5'
                         w={settings?.size+'px'}
                         h={settings?.size+'px'}

@@ -1,4 +1,4 @@
-import { Box, Center, Heading, HStack, Spacer } from "@chakra-ui/react";
+import { Center, Container, Heading, HStack, Spacer } from "@chakra-ui/react";
 
 import cookie from 'js-cookie';
 import React, { useEffect, useState } from 'react';
@@ -6,8 +6,9 @@ import Menu from "./Menu";
 import Numeri from "./Numeri";
 
 function App() {
+  const initVals = { size: 50, gap: 5, marked: 'teal.500', normale: 'grey.400', text: 'grey.600'}
   const [marked, setMarked] = useState([])
-  const [settings, setSettings] = useState({ size: 50, gap: 5 })
+  const [settings, setSettings] = useState(initVals)
   const [numerone, setNumerone] = useState('')
 
   const handleKeyDown = (event) => {
@@ -24,7 +25,6 @@ function App() {
       setNumerone('')
     }
   }
-  // window.addEventListener('keydown', handleKeyDown)
 
   useEffect(() => {
     var tombolaMarked = cookie.get('tombolaMarked')
@@ -47,23 +47,22 @@ function App() {
 
 
   return (
+    <>
     <Center onKeyDown={handleKeyDown} 
-    m='0'
-    p='0'
-    tabIndex='0' 
-    minH='100vh' 
-    minW='100vw'>
-      <Box>
+    tabIndex={0}
+    >
+      <Container size='xl'>
         <HStack>
           <Spacer />
           {settings?.heading && <Heading size='2xl' as="h1">Tombola</Heading>}
           <Spacer />
-          <Menu setMarked={setMarked} settings={settings} setSettings={setSettings} />
+          <Menu setMarked={setMarked} settings={settings} setSettings={setSettings} initVals={initVals} />
         </HStack>
         <Numeri marked={marked} setMarked={setMarked} settings={settings} />
-      </Box>
-      <Numerone numerone={numerone} />
+      </Container>
     </Center>
+      <Numerone numerone={numerone} />
+      </>
   )
 }
 const Numerone = ({ numerone }) => {

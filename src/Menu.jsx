@@ -2,7 +2,7 @@ import { Button, Divider, FormControl, FormLabel, IconButton, Popover, PopoverAr
 import React from 'react'
 import { IoMenu } from 'react-icons/io5'
 
-const Menu = ({ settings, setSettings, setMarked }) => {
+const Menu = ({ settings, setSettings, setMarked, initVals }) => {
   return (
     <Popover>
       <PopoverTrigger>
@@ -15,7 +15,7 @@ const Menu = ({ settings, setSettings, setMarked }) => {
           <FormControl>
             <FormLabel>Dimensione</FormLabel>
             <Slider aria-label='slider-ex-2' colorScheme='teal' defaultValue={settings?.size}
-              min={40} max={140} step={5}
+              min={40} max={140} step={2}
               value={settings?.size} onChange={(val) => setSettings({ ...settings, size: parseInt(val) })}>
               <SliderTrack>
                 <SliderFilledTrack />
@@ -43,10 +43,12 @@ const Menu = ({ settings, setSettings, setMarked }) => {
   </FormLabel>
   <Switch id='heading' 
     isChecked={settings?.heading}
+    colorScheme={'teal'}
+    size='lg'
   onChange={(e) => setSettings({ ...settings, heading: e.target.checked })} />
 </FormControl>
 <Divider my='3' />
-          <Button onClick={() => setMarked([])}>Reset</Button>
+          <Button onClick={() => {setMarked([]); setSettings(initVals)}}>Reset</Button>
         </PopoverBody>
       </PopoverContent>
     </Popover>
