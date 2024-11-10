@@ -1,9 +1,9 @@
-import { Center, Container, Heading, HStack, Spacer } from "@chakra-ui/react";
-
-import cookie from 'js-cookie';
 import React, { useEffect, useState } from 'react';
+import { Center, Container, Heading, HStack, Spacer } from "@chakra-ui/react";
+import cookie from 'js-cookie';
 import Menu from "./Menu";
 import Numeri from "./Numeri";
+import Numerone from "./Numerone";
 
 function App() {
   const initVals = { size: 50, gap: 5, marked: 'teal', unmarked: 'gray', heading: false, testata: 'Tombola' }
@@ -48,37 +48,19 @@ function App() {
 
   return (
     <>
-    <Center onKeyDown={handleKeyDown} 
-    tabIndex={0}
-    >
-      <Container size='xl'>
-        <HStack>
-          <Spacer />
-          {settings?.heading && <Heading size='2xl' as="h1">{settings?.testata}</Heading>}
-          <Spacer />
-          <Menu setMarked={setMarked} settings={settings} setSettings={setSettings} initVals={initVals} />
-        </HStack>
-        <Numeri marked={marked} setMarked={setMarked} settings={settings} />
-      </Container>
-    </Center>
+      <Center onKeyDown={handleKeyDown} tabIndex={0} >
+        <Container size='xl'>
+          <HStack>
+            <Spacer />
+            {settings?.heading && <Heading size='2xl' as="h1">{settings?.testata}</Heading>}
+            <Spacer />
+            <Menu setMarked={setMarked} settings={settings} setSettings={setSettings} initVals={initVals} />
+          </HStack>
+          <Numeri marked={marked} setMarked={setMarked} settings={settings} />
+        </Container>
+      </Center>
       <Numerone numerone={numerone} />
-      </>
-  )
-}
-const Numerone = ({ numerone }) => {
-  if (numerone != '') return (
-    <Center
-      position='absolute'
-      top='0'
-      left='0'
-      right='0'
-      bottom='0'
-      zIndex='1000'
-      bg={'rgba(0,0,0,0.5)'}
-      color='white'
-      fontSize='500px'
-      fontWeight={700}
-    >{numerone}</Center>
+    </>
   )
 }
 export default App;
