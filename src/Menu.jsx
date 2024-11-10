@@ -52,22 +52,21 @@ const Menu = ({ settings, setSettings, setMarked, initVals }) => {
           <FormControl>
             <FormLabel>Colore marcati</FormLabel>
             <Grid templateColumns='repeat(5, 1fr)' gap={2}>
-              <Button w='30px' minH='30px' colorScheme='teal' onClick={() => setSettings({ ...settings, marked: 'teal' })}></Button>
-              <Button w='30px' minH='30px' colorScheme='red' onClick={() => setSettings({ ...settings, marked: 'red' })}></Button>
-              <Button w='30px' minH='30px' colorScheme='blue' onClick={() => setSettings({ ...settings, marked: 'blue' })}></Button>
-              <Button w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, marked: 'yellow' })}></Button>
-              <Button w='30px' minH='30px' colorScheme='purple' onClick={() => setSettings({ ...settings, marked: 'purple' })}></Button>
+              <Button border={settings?.marked=='teal'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='teal' onClick={() => setSettings({ ...settings, marked: 'teal' })}></Button>
+              <Button border={settings?.marked=='red'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='red' onClick={() => setSettings({ ...settings, marked: 'red' })}></Button>
+              <Button border={settings?.marked=='yellow'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, marked: 'yellow' })}></Button>
+              <Button border={settings?.marked=='purple'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='purple' onClick={() => setSettings({ ...settings, marked: 'purple' })}></Button>
             </Grid>
             </FormControl>
 
             <FormControl>
               <FormLabel>Colore non marcati</FormLabel>
               <Grid templateColumns='repeat(5, 1fr)' gap={2}>
-                <Button w='30px' minH='30px' colorScheme='gray' onClick={() => setSettings({ ...settings, unmarked: 'gray' })}></Button>
-                <Button w='30px' minH='30px' colorScheme='orange' onClick={() => setSettings({ ...settings, unmarked: 'orange' })}></Button>
-                <Button w='30px' minH='30px' colorScheme='green' onClick={() => setSettings({ ...settings, unmarked: 'green' })}></Button>
-                <Button w='30px' minH='30px' colorScheme='pink' onClick={() => setSettings({ ...settings, unmarked: 'pink' })}></Button>
-                <Button w='30px' minH='30px' colorScheme='cyan' onClick={() => setSettings({ ...settings, unmarked: 'cyan' })}></Button>
+                <Button border={settings?.unmarked=='gray'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='gray' onClick={() => setSettings({ ...settings, unmarked: 'gray' })}></Button>
+                <Button border={settings?.unmarked=='pink'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='pink' onClick={() => setSettings({ ...settings, unmarked: 'pink' })}></Button>
+                <Button border={settings?.unmarked=='yellow'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, unmarked: 'yellow' })}></Button>
+                <Button border={settings?.unmarked=='blue'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='blue' onClick={() => setSettings({ ...settings, unmarked: 'blue' })}></Button>
+
               </Grid>
             </FormControl>
             <Divider my='3' />
