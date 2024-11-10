@@ -1,4 +1,4 @@
-import { Grid, Box, Button, Divider, FormControl, FormLabel, IconButton, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Switch } from '@chakra-ui/react'
+import { Grid, Input, Button, Divider, FormControl, FormLabel, IconButton, Popover, PopoverArrow, PopoverBody, PopoverCloseButton, PopoverContent, PopoverTrigger, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Switch } from '@chakra-ui/react'
 import React from 'react'
 import { IoMenu } from 'react-icons/io5'
 
@@ -47,29 +47,33 @@ const Menu = ({ settings, setSettings, setMarked, initVals }) => {
               size='lg'
               onChange={(e) => setSettings({ ...settings, heading: e.target.checked })} />
           </FormControl>
+          <FormControl mt='2'>
+            <Input id='testata' value={settings?.testata} onChange={(e) => setSettings({ ...settings, testata: e.target.value })} />
+          </FormControl>
+
           <Divider my='3' />
 
           <FormControl>
             <FormLabel>Colore marcati</FormLabel>
             <Grid templateColumns='repeat(5, 1fr)' gap={2}>
-              <Button border={settings?.marked=='teal'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='teal' onClick={() => setSettings({ ...settings, marked: 'teal' })}></Button>
-              <Button border={settings?.marked=='red'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='red' onClick={() => setSettings({ ...settings, marked: 'red' })}></Button>
-              <Button border={settings?.marked=='yellow'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, marked: 'yellow' })}></Button>
-              <Button border={settings?.marked=='purple'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='purple' onClick={() => setSettings({ ...settings, marked: 'purple' })}></Button>
+              <Button border={settings?.marked == 'teal' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='teal' onClick={() => setSettings({ ...settings, marked: 'teal' })}></Button>
+              <Button border={settings?.marked == 'red' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='red' onClick={() => setSettings({ ...settings, marked: 'red' })}></Button>
+              <Button border={settings?.marked == 'yellow' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, marked: 'yellow' })}></Button>
+              <Button border={settings?.marked == 'purple' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='purple' onClick={() => setSettings({ ...settings, marked: 'purple' })}></Button>
             </Grid>
-            </FormControl>
+          </FormControl>
 
-            <FormControl>
-              <FormLabel>Colore non marcati</FormLabel>
-              <Grid templateColumns='repeat(5, 1fr)' gap={2}>
-                <Button border={settings?.unmarked=='gray'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='gray' onClick={() => setSettings({ ...settings, unmarked: 'gray' })}></Button>
-                <Button border={settings?.unmarked=='pink'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='pink' onClick={() => setSettings({ ...settings, unmarked: 'pink' })}></Button>
-                <Button border={settings?.unmarked=='yellow'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, unmarked: 'yellow' })}></Button>
-                <Button border={settings?.unmarked=='blue'? '2px solid white' : '' } w='30px' minH='30px' colorScheme='blue' onClick={() => setSettings({ ...settings, unmarked: 'blue' })}></Button>
+          <FormControl>
+            <FormLabel>Colore non marcati</FormLabel>
+            <Grid templateColumns='repeat(5, 1fr)' gap={2}>
+              <Button border={settings?.unmarked == 'gray' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='gray' onClick={() => setSettings({ ...settings, unmarked: 'gray' })}></Button>
+              <Button border={settings?.unmarked == 'pink' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='pink' onClick={() => setSettings({ ...settings, unmarked: 'pink' })}></Button>
+              <Button border={settings?.unmarked == 'yellow' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='yellow' onClick={() => setSettings({ ...settings, unmarked: 'yellow' })}></Button>
+              <Button border={settings?.unmarked == 'blue' ? '2px solid white' : ''} w='30px' minH='30px' colorScheme='blue' onClick={() => setSettings({ ...settings, unmarked: 'blue' })}></Button>
 
-              </Grid>
-            </FormControl>
-            <Divider my='3' />
+            </Grid>
+          </FormControl>
+          <Divider my='3' />
           <Button onClick={() => { setMarked([]); setSettings(initVals) }}>Reset</Button>
         </PopoverBody>
       </PopoverContent>

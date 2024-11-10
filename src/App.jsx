@@ -6,7 +6,7 @@ import Menu from "./Menu";
 import Numeri from "./Numeri";
 
 function App() {
-  const initVals = { size: 50, gap: 5, marked: 'teal', unmarked: 'gray', heading: false }
+  const initVals = { size: 50, gap: 5, marked: 'teal', unmarked: 'gray', heading: false, testata: 'Tombola' }
   const [marked, setMarked] = useState([])
   const [settings, setSettings] = useState(initVals)
   const [numerone, setNumerone] = useState('')
@@ -54,7 +54,7 @@ function App() {
       <Container size='xl'>
         <HStack>
           <Spacer />
-          {settings?.heading && <Heading size='2xl' as="h1">Tombola</Heading>}
+          {settings?.heading && <Heading size='2xl' as="h1">{settings?.testata}</Heading>}
           <Spacer />
           <Menu setMarked={setMarked} settings={settings} setSettings={setSettings} initVals={initVals} />
         </HStack>
